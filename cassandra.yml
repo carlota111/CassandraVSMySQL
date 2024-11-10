@@ -1,4 +1,0 @@
-name: Cassandra
-channels:
-  - defaults
-prefix: /home/bigdata/miniconda3/envs/Cassandra
