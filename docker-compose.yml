@@ -11,3 +11,6 @@ services:
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: pw
+       MYSQL_DATABASE: dbMySQL
+     ports:
+       - 3306:3306
