@@ -38,6 +38,7 @@ conda create --name MySQL
 conda activate MySQL
 conda install pip
 pip install mysql-connector-python
+pip install pandas
 ````
 Esto instalará la librería de Python necesaria para interactuar con MySQL.
 
