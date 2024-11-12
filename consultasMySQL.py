@@ -1,5 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
+import time
 
 def conectar_mysql():
     try:
@@ -16,9 +17,19 @@ def conectar_mysql():
            
             cursor = conexion.cursor()
 
-            cursor.execute("SELECT nombre FROM usuarios WHERE nombre LIKE 'Chris%'")
+            # Medir el tiempo de inicio
+            start_time = time.time()
 
+            # Ejecutar la consulta
+            cursor.execute("SELECT * FROM usuarios")
             resultados = cursor.fetchall()
+
+            # Medir el tiempo final
+            end_time = time.time()
+
+            # Calcular el tiempo de ejecución
+            tiempo_ejecucion = end_time - start_time
+            print(f"La consulta tardó {tiempo_ejecucion:.4f} segundos en ejecutarse.")
 
             # Imprimir los resultados
             for registro in resultados:

@@ -17,7 +17,19 @@ def insertar_datos_csv():
             print("Conexión exitosa a la base de datos")
 
             cursor = conexion.cursor()
-	   
+   
+          # Crear la tabla 'usuarios' si no existe
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS usuarios (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    nombre VARCHAR(50) NOT NULL,
+                    edad INT,
+                    email VARCHAR(50),
+                    fecha_registro DATE
+                )
+            """)
+            print("Tabla 'usuarios' creada o ya existía.")
+
 	    # Borrar todos los registros de la tabla 'usuarios' para evitar duplicados
             cursor.execute("DELETE FROM usuarios")
             conexion.commit()
@@ -37,7 +49,7 @@ def insertar_datos_csv():
 
             # Confirmar los cambios en la base de datos
             conexion.commit()
-            print(f"Se han insertado {cursor.rowcount} registros en la base de datos.")
+            print(f"Se han insertado los  registros en la base de datos.")
 
     except Error as e:
         print("Error al conectar a la base de datos o al insertar los datos:", e)
