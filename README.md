@@ -34,6 +34,11 @@ docker compose up -d
 Para trabajar con MySQL, crea un entorno conda, actívalo e instala las dependencias necesarias:
 
 ```bash
+conda env create --file env_mysql.yml
+````
+Ese comando es lo mismo que esto de aquí:
+
+```bash
 conda create --name MySQL
 conda activate MySQL
 conda install pip
@@ -42,7 +47,26 @@ pip install pandas
 ````
 Esto instalará la librería de Python necesaria para interactuar con MySQL.
 
-### 4. Ejecutar los Scripts de Comparación
+### 4. Configuración del Entorno para Cassandra
+Para trabajar con Cassandra, crea un entorno conda, actívalo e instala las dependencias necesarias:
+
+```bash
+conda env create --file env_Cassandra.yml
+````
+Si prefieres crear el entorno e instalar tu mismo las librerias sin el yml:
+
+Para que cassandra-diver funcione la versión de python debe ser 3.9
+
+```bash
+conda create --name cassandra
+conda activate cassandra
+conda install -c conda-forge faker
+conda install -c conda-forge cassandra-driver
+pip install cassandra-driver pandas 
+````
+Esto instalará la librería de Python necesaria para interactuar con Cassandra en los scripts creados.
+
+### 5. Ejecutar los Scripts de Comparación
 Una vez que todo esté configurado, puedes ejecutar los scripts de Python para realizar las pruebas de rendimiento. Para ejecutar un script, usa el siguiente comando:
 
 ```bash
