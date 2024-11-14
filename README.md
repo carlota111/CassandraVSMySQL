@@ -54,6 +54,7 @@ Para trabajar con Cassandra, crea un entorno conda, actívalo e instala las depe
 conda env create --file env_Cassandra.yml
 ````
 Si prefieres crear el entorno e instalar tu mismo las librerias sin el yml:
+
 Para que cassandra-diver funcione la versión de python debe ser 3.9
 
 ```bash
