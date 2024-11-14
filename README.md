@@ -34,6 +34,11 @@ docker compose up -d
 Para trabajar con MySQL, crea un entorno conda, actívalo e instala las dependencias necesarias:
 
 ```bash
+conda env create --file env_mysql.yml
+````
+Ese comando es lo mismo que esto de aquí:
+
+```bash
 conda create --name MySQL
 conda activate MySQL
 conda install pip
