@@ -4,15 +4,15 @@ from cassandra.query import SimpleStatement
 from datetime import datetime
 
 # Configura la dirección IP del nodo Cassandra
-CASSANDRA_HOST = '127.0.0.1'  # O la IP de tu contenedor Docker o servidor remoto
-CASSANDRA_PORT = 9042  # Puerto de Cassandra
+CASSANDRA_HOST = '127.0.0.1'  
+CASSANDRA_PORT = 9042  
 
 # Nombre del Keyspace y la tabla
 KEYSPACE = 'mykeyspace'
 TABLE = 'mytable'
 
 # Cargar los datos desde un archivo CSV (ajusta la ruta del archivo)
-CSV_FILE = 'dataset_extracto.csv'  # Nombre del archivo CSV
+CSV_FILE = 'dataset_extracto.csv' 
 
 def connect_to_cassandra():
     """Conectar a Cassandra y retornar la sesión."""
@@ -31,10 +31,10 @@ def create_keyspace_and_table(session):
     # Usar el Keyspace creado
     session.set_keyspace(KEYSPACE)
 
-    # Crear la tabla si no existe con la columna 'id' de tipo INT
+    # Crear la tabla
     session.execute(f"""
         CREATE TABLE IF NOT EXISTS {TABLE} (
-            id INT PRIMARY KEY,  -- Definir 'id' como INT, no UUID
+            id INT PRIMARY KEY, 
             nombre TEXT,
             edad INT,
             email TEXT,
@@ -58,8 +58,8 @@ def insert_data_from_csv(session):
 
     # Insertar cada fila del CSV en la tabla
     for index, row in df.iterrows():
-        # Convertir el ID a int (ya debería ser int en el CSV)
-        id_value = int(row['id'])  # Asegurarse de que sea un número entero
+        # Convertir el ID a int 
+        id_value = int(row['id']) 
 
         # Ejecutar la inserción de datos
         session.execute(insert_stmt, (id_value, row['nombre'], row['edad'], row['email'], row['fecha_registro']))
