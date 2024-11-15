@@ -73,3 +73,27 @@ Una vez que todo esté configurado, puedes ejecutar los scripts de Python para r
 python3 nombreScript
 ````
 Reemplaza nombreScript por el nombre del script que deseas ejecutar, ya sea para realizar operaciones en MySQL o Cassandra.
+
+### 6. Preguntas a responder
+- **Cal é máis rápida?**
+
+  Inserción de datos:
+  MySQL ha sido más rápido que Cassandra.
+  
+  Consultas:
+  Cassandra ha sido más rápida que MySQL.
+
+
+- **Son os resultados os esperados?**
+
+  No, nosotras esperábamos que fuese más rápida una sola base de datos en ambos campos.
+
+
+- **Como xustificas os resultados?**
+
+  Inserción de datos:
+  Cassandra, al ser una base de datos distribuida, necesita replicar datos entre nodos, lo que introduce latencia durante      las operaciones de escritura.
+  MySQL utiliza índices y un modelo relacional optimizado para inserciones rápidas en un entorno transaccional. 
+
+  Consultas:
+  Cassandra está optimizada para operaciones de lectura y escritura rápidas en grandes volúmenes de datos gracias a la         ausencia de relaciones complejas y a su almacenamiento distribuido. 
